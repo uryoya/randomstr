@@ -19,5 +19,23 @@ def randomstr(length, enable_symbol=True):
 if __name__ == '__main__':
     import sys
 
-    print(randomstr(int(sys.argv[1])))
-        
+    usage = """USAGE:
+    randomstr.py [LEN] ([OPTION])
+
+    [LEN]       length of randomstrings.
+
+    [OPTION]
+    --non-symbole
+                not use symbol in randomstrings.
+    """
+    # check arguments option
+    if len(sys.argv) < 2:
+        print(usage)
+        exit()
+
+    str_long = int(sys.argv[1])
+    if len(sys.argv) == 3 and sys.argv[2] == "--non-symbol":
+        print(randomstr(str_long, False))
+    else:
+        print(randomstr(str_long))
+            
